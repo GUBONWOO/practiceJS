@@ -1,53 +1,83 @@
-const string1 = 'Hello';
-const string2 = 'Hello';
-const string3 = `Hello ${string1} ?!`;
-
-console.log(string3);
-
-const fruits = ['Apple', 'Banana', 'Orange'];
-console.log(fruits.length);
-console.log(fruits[0]);
-
-// const user = new Object()
-// user.name = 'Heropy'
-// user.age = 85
-// console.log(user);
-
-// function User() {
-//   this.name = 'Koo'
-//   this.age = 31
-// }
-// const user = new User()
+// Optional chaning
 
 const userA = {
   name: 'koo',
-  age: 70,
+  age: 90,
+  address: {
+    country: 'korea',
+    city: 'busan',
+  },
 };
-const key = 'name';
-console.log(userA.name);
 
 const userB = {
-  name: 'koo2',
-  age: 40,
-  parent: userA,
+  name: 'neno',
+  age: 22,
 };
 
-console.log(userB.parent);
+function getCity(user) {
+  return user.address.city || 'no adress';
+}
+console.log(getCity(userA));
+console.log(getCity(userB));
 
-const y = function () {
-  console.log('A');
+// if
+
+function isPositive(num) {
+  if (num > 0) {
+    return 'yang';
+  } else if (num < 0) {
+    return 'um';
+  } else {
+    return '0';
+  }
+}
+console.log(isPositive(1));
+console.log(isPositive(10));
+console.log(isPositive(-2));
+console.log(isPositive(0));
+
+// switch
+function price(fruit) {
+  switch (fruit) {
+    case 'apple':
+      return 1000;
+
+    case 'banana':
+      return 200;
+
+    default:
+      return 0;
+  }
+}
+console.log(price(apple));
+console.log(price(banana));
+console.log(price(hi));
+
+// for
+
+for (let i = 0; i < 10; i += 1) {
+  if (i % 2 === 0) {
+    continue;
+  }
+  console.log(i);
+}
+
+// for of
+
+const fruits = ['apple', 'banana', 'orange'];
+
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+//  for in
+
+const userX = {
+  name: 'koo',
+  age: 31,
+  isvalid: true,
 };
-const x = function (z) {
-  console.log(z);
-};
-b(y);
 
-console.log(typeof 'Hello' === 'string');
-console.log(typeof 123 === 'number');
-console.log(typeof false === 'boolean');
-console.log(typeof undefined === 'undefined');
-console.log(typeof null === 'object');
-console.log(typeof function () {} === 'function');
-
-console.log([].constructor === Array);
-console.log([].constructor === Object);
+for (const key in userX) {
+  console.log(key);
+  console.log(userX['age']);
+}
