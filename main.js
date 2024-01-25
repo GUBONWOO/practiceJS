@@ -1,83 +1,74 @@
-// Optional chaning
+function hello() {
+  return 'hello';
+}
 
-const userA = {
+console.log(hello);
+
+function plus(num) {
+  if (typeof num !== 'number') {
+    console.log('check num');
+    return 0;
+  }
+  return num + 1;
+}
+console.log(plus(2));
+console.log(plus(7));
+
+// function sum(a, b) {
+//   return a + b;
+// }
+// console.log(sum(1, 2));
+
+const user = {
   name: 'koo',
-  age: 90,
-  address: {
-    country: 'korea',
-    city: 'busan',
-  },
+  age: 20,
+  email: 'acacac@naver.com',
 };
 
-const userB = {
-  name: 'neno',
-  age: 22,
-};
-
-function getCity(user) {
-  return user.address.city || 'no adress';
+function getName({ name }) {
+  return name;
 }
-console.log(getCity(userA));
-console.log(getCity(userB));
-
-// if
-
-function isPositive(num) {
-  if (num > 0) {
-    return 'yang';
-  } else if (num < 0) {
-    return 'um';
-  } else {
-    return '0';
-  }
-}
-console.log(isPositive(1));
-console.log(isPositive(10));
-console.log(isPositive(-2));
-console.log(isPositive(0));
-
-// switch
-function price(fruit) {
-  switch (fruit) {
-    case 'apple':
-      return 1000;
-
-    case 'banana':
-      return 200;
-
-    default:
-      return 0;
-  }
-}
-console.log(price(apple));
-console.log(price(banana));
-console.log(price(hi));
-
-// for
-
-for (let i = 0; i < 10; i += 1) {
-  if (i % 2 === 0) {
-    continue;
-  }
-  console.log(i);
+function getEmail({ email }) {
+  return email;
 }
 
-// for of
+console.log(getName(user));
+console.log(getEmail(user));
 
 const fruits = ['apple', 'banana', 'orange'];
+const numbers = [1, 2, 3, 4, 5, 6, 7];
 
-for (const fruit of fruits) {
-  console.log(fruit);
+function getSecondItem(array) {
+  return array[1];
 }
-//  for in
+console.log(getSecondItem(fruits));
+console.log(getSecondItem(numbers));
 
-const userX = {
-  name: 'koo',
-  age: 31,
-  isvalid: true,
+function sum(...rest) {
+  console.log(rest);
+  console.log(arguments);
+  return rest.reduce(function (acc, cur) {
+    return acc + cur;
+  }, 0);
+}
+console.log(sum(1, 2));
+console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(1, 2, 3, 4, 5, 7, 8, 9));
+
+function add1(a, b) {
+  return a + b;
+}
+const add2 = (a, b) => a + b;
+console.log(add1(1, 2));
+
+const a = () => {};
+const b = (x) => {};
+const c = (x, y) => {};
+const d = (x) => {
+  return x * x;
 };
-
-for (const key in userX) {
-  console.log(key);
-  console.log(userX['age']);
-}
+const e = (x) => x * x;
+const f = (x) => {
+  console.log(x * x);
+  return x * x;
+};
