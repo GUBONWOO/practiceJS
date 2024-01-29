@@ -1,139 +1,118 @@
-function hello() {
-  return 'hello';
-}
+//prototype
+// const fruits = new Array('apple', 'banana', orange);
 
-console.log(hello);
+// console.log(fruits);
+// console.log(fruits.length);
+// console.log(fruits.includes('banana'));
 
-function plus(num) {
-  if (typeof num !== 'number') {
-    console.log('check num');
-    return 0;
-  }
-  return num + 1;
-}
-console.log(plus(2));
-console.log(plus(7));
+// Array.prototype.heropy = function () {
+//   console.log(this);
+// };
+// fruits.heropy();
 
-// function sum(a, b) {
-//   return a + b;
+// const korean = {
+//   firstName: 'minsoo',
+//   lastName: 'kim',
+//   getFullname() {
+//     return `${this.firstName}${this.lastName}`;
+//   },
+// };
+// console.log(korean.getFullname());
+
+// function User2(first, last) {
+//   (this.firstName = first), (this.lastName = last);
 // }
-// console.log(sum(1, 2));
 
-const user = {
-  name: 'koo',
-  age: 20,
-  email: 'acacac@naver.com',
-};
+// const heropy = new User('heropy', 'park');
 
-function getName({ name }) {
-  return name;
+// console.log(heropy);
+
+// class
+// function User(first, last) {
+//   this.firstName = first;
+//   this.lastName = last;
+// }
+
+// class User {
+//   constructor(first, last) {
+//     this.firstName = first;
+//     this.lastName = last;
+//   }
+//   getFullName() {
+//     `${this.firstName}${this.lastName}`;
+//   }
+// }
+// const china1 = new User('zhi', 'yang');
+// const china2 = new User('lao', 'zhang');
+
+// console.log(china1);
+// console.log(china2);
+
+//Getter, Setter
+
+// class User {
+//   constructor(first, last) {
+//     this.firstName = first;
+//     this.lastName = last;
+//   }
+//   get fullName() {
+//     return `${this.firstName}${this.lastName}`;
+//   }
+//   set fullName(value) {
+//     console.log(value);
+//     [this.firstName, this.lastName] = value.split(' ');
+//   }
+// }
+
+// const china1 = new User('zhi', 'yang');
+
+// console.log(china1.fullName);
+// china1.fullName = 'neo Anderson';
+// console.log(china1);
+
+//static methods
+
+// class User {
+//   constructor(first, last) {
+//     this.firstName = first;
+//     this.lastName = last;
+//   }
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+//   static isUser(user) {
+//     if (user.firstName && user.lastName) {
+//       return true;
+//     }
+//     return false;
+//   }
+// }
+// const china1 = new User('zhi', 'yang');
+
+// console.log(china1);
+// console.log(china1.getFullName());
+// console.log(User.isUser(china1));
+
+//instanceof constructor
+class A {
+  constructor() {}
 }
-function getEmail({ email }) {
-  return email;
-}
-
-console.log(getName(user));
-console.log(getEmail(user));
-
-const fruits = ['apple', 'banana', 'orange'];
-const numbers = [1, 2, 3, 4, 5, 6, 7];
-
-function getSecondItem(array) {
-  return array[1];
-}
-console.log(getSecondItem(fruits));
-console.log(getSecondItem(numbers));
-
-function sum(...rest) {
-  console.log(rest);
-  console.log(arguments);
-  return rest.reduce(function (acc, cur) {
-    return acc + cur;
-  }, 0);
-}
-console.log(sum(1, 2));
-console.log(sum(1, 2, 3, 4, 5));
-console.log(sum(1, 2, 3, 4, 5, 7, 8, 9));
-
-function add1(a, b) {
-  return a + b;
-}
-const add2 = (a, b) => a + b;
-console.log(add1(1, 2));
-
-const a = () => {};
-const b = (x) => {};
-const c = (x, y) => {};
-const d = (x) => {
-  return x * x;
-};
-const e = (x) => x * x;
-const f = (x) => {
-  console.log(x * x);
-  return x * x;
-};
-
-//iife
-const l = 7;
-
-const double = () => {
-  console.log(a * 2);
-};
-double();
-
-//Callback
-
-const h = (callback) => {
-  callback();
-  console.log('H');
-};
-const k = () => {
-  console.log('K');
-};
-
-a(b);
-
-const sum2 = (a, b, c) => {
-  setTimeout(() => {
-    c(a + b);
-  }, 1000);
-};
-
-console.log(sum2(1, 2));
-sum2(1, 2, (value) => {
-  console.log(value);
-});
-
-//Recursive
-let i = 0;
-const p = () => {
-  console.log('P');
-  i += 1;
-  if (i < 4) {
-    p();
+class B extends A {
+  constructor() {
+    super();
   }
-};
-p();
+}
 
-const userM = { name: 'M', parent: null };
-const userO = { name: 'O', parent: userM };
-const userP = { name: 'P', parent: userO };
-
-const getRootUser = (user) => {
-  if (user.parent) {
-    return getRootUser(user.parent);
+class C extends B {
+  constructor() {
+    super();
   }
-  return user;
-};
-console.log(getRootUser(userP));
+}
 
-//this
-const userX = {
-  firstName: 'Koo',
-  lastName: 'goo',
-  age: 44,
-  getFullName: function () {
-    return `${this.firstName} ${this.lastName}`;
-  },
-};
-console.log(user.getFullName());
+const a = new A();
+const b = new B();
+const c = new C();
+
+console.log(a instanceof A);
+console.log(a instanceof B);
+console.log(b instanceof A);
