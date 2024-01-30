@@ -1,118 +1,54 @@
-//prototype
-// const fruits = new Array('apple', 'banana', orange);
+//doc
 
-// console.log(fruits);
-// console.log(fruits.length);
-// console.log(fruits.includes('banana'));
+// const str = 'Hello world!!!';
+// console.log(str.length);
+// console.log(str.includes('Hello', 0));
+// console.log(str.indexOf('world'));
+// console.log(str.padEnd(10, '0'));
 
-// Array.prototype.heropy = function () {
-//   console.log(this);
-// };
-// fruits.heropy();
+//replace
 
-// const korean = {
-//   firstName: 'minsoo',
-//   lastName: 'kim',
-//   getFullname() {
-//     return `${this.firstName}${this.lastName}`;
-//   },
-// };
-// console.log(korean.getFullname());
+// const str = 'Hello, Hello?!';
+// console.log(str.replace('Hello', 'Hi'));
+// console.log(str.replace(/Hello/g, 'Hi'));
 
-// function User2(first, last) {
-//   (this.firstName = first), (this.lastName = last);
-// }
+//slice
 
-// const heropy = new User('heropy', 'park');
+// const str = 'Hello world';
 
-// console.log(heropy);
+// console.log(str.slice(0, 5));
+// console.log(str.slice(6, -1));
+// console.log(str.slice(6));
 
-// class
-// function User(first, last) {
-//   this.firstName = first;
-//   this.lastName = last;
-// }
+//split()
 
-// class User {
-//   constructor(first, last) {
-//     this.firstName = first;
-//     this.lastName = last;
-//   }
-//   getFullName() {
-//     `${this.firstName}${this.lastName}`;
-//   }
-// }
-// const china1 = new User('zhi', 'yang');
-// const china2 = new User('lao', 'zhang');
+// const str = 'apple, banana, orange';
+// console.log(str.split(','));
 
-// console.log(china1);
-// console.log(china2);
+//toLowerCase()
 
-//Getter, Setter
+// const str = '    Apple, Banana, Orange   ';
 
-// class User {
-//   constructor(first, last) {
-//     this.firstName = first;
-//     this.lastName = last;
-//   }
-//   get fullName() {
-//     return `${this.firstName}${this.lastName}`;
-//   }
-//   set fullName(value) {
-//     console.log(value);
-//     [this.firstName, this.lastName] = value.split(' ');
-//   }
-// }
+// console.log(str.toLocaleLowerCase());
+// console.log(str.toLocaleUpperCase());
+// console.log(str.trim());
 
-// const china1 = new User('zhi', 'yang');
+//toFixed()
 
-// console.log(china1.fullName);
-// china1.fullName = 'neo Anderson';
-// console.log(china1);
+// const num = 31415926335;
+// console.log(typeof num.toFixed(2));
+// console.log(typeof parseFloat(num.toFixed(2)));
+// console.log(num.toLocaleString());
 
-//static methods
-
-// class User {
-//   constructor(first, last) {
-//     this.firstName = first;
-//     this.lastName = last;
-//   }
-//   getFullName() {
-//     return `${this.firstName} ${this.lastName}`;
-//   }
-//   static isUser(user) {
-//     if (user.firstName && user.lastName) {
-//       return true;
-//     }
-//     return false;
-//   }
-// }
-// const china1 = new User('zhi', 'yang');
-
-// console.log(china1);
-// console.log(china1.getFullName());
-// console.log(User.isUser(china1));
-
-//instanceof constructor
-class A {
-  constructor() {}
+//math.abs
+console.log(Math.abs(-2));
+console.log(Math.ceil(3.142));
+console.log(Math.floor(3.142));
+console.log(Math.max(1, 22, 444, 555));
+console.log(Math.pow(4, 2));
+console.log(Math.random());
+function random(min = 0, max = 10) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
-class B extends A {
-  constructor() {
-    super();
-  }
-}
-
-class C extends B {
-  constructor() {
-    super();
-  }
-}
-
-const a = new A();
-const b = new B();
-const c = new C();
-
-console.log(a instanceof A);
-console.log(a instanceof B);
-console.log(b instanceof A);
+console.log(random());
+console.log(Math.round(3.5));
