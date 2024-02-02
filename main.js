@@ -1,112 +1,27 @@
-//callback
+//dom
 
-// const a = (callback) => {
-//   setTimeout(() => {
-//     console.log(1);
-//     callback();
-//   }, 1000);
-// };
-// const b = (callback) => {
-//   setTimeout(() => {
-//     console.log(2);
-//     callback();
-//   }, 1000);
-// };
-// const c = () => console.log(3);
+// const element = document.querySelector('h1');
+// console.log(element.textContent);
 
-// a(() => {
-//   b(() => {
-//     c();
-//   });
-// });
+// const parent = document.querySelector('.parent');
 
-//Promise
+// console.log(parent.childNodes);
 
-// const a = () => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       console.log(1);
-//       resolve();
-//     }, 1000);
-//   });
-// };
+// console.log(parent.children);
+// console.log(parent);
 
-// const b = () => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       console.log(2);
-//       resolve();
-//     }, 1000);
-//   });
-// };
+const el = document.getElementById('child2');
+console.log(el);
 
-// const c = () => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       console.log(3);
-//       resolve();
-//     }, 1000);
-//   });
-// };
-// const d = () => console.log(4);
+const el1 = document.querySelector('.child:first-child');
+console.log(el1);
 
-// a().then(b).then(c).then(d);
+const nodeList = document.querySelectorAll('.child');
+console.log(nodeList);
+nodeList.forEach((el3) => console.log(el3.textContent));
 
-//Async await
-
-// const a = () => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       console.log(1);
-//       resolve();
-//     }, 1000);
-//   });
-// };
-// const b = () => console.log(2);
-
-// const wrap = async () => {
-//   await a();
-//   b();
-// };
-
-// wrap();
-
-//Resolve, Reject
-
-// const delayAdd = (index, cb, errorCb) => {
-//   setTimeout(() => {
-//     if (index > 10) {
-//       errorCb(`${index}는 10보다 클 수 없습니다.`);
-//       return;
-//     }
-//     console.log(index);
-//     cb(index + 1);
-//   }, 1000);
-// };
-// delayAdd(
-//   11,
-//   (res) => console.log(res),
-//   (err) => console.log(err)
-// );
-
-const delayAdd = (index) => {
-  return new Promise((reslove, reject) => {
-    setTimeout(() => {
-      if (index > 10) {
-        reject(`${index}는 10보다 클 수 없습니다.`);
-        return;
-      }
-      console.log(index);
-      reslove(index + 1);
-    }, 1000);
-  });
-};
-delayAdd(2)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
-
-const wrap = async () => {
-  const res = await delayAdd(2);
-  console.log(res);
-};
-wrap();
+const el4 = document.querySelector('.child');
+console.log(el.parentElement);
+console.log(el4.closest('div'));
+console.log(el4.closest('body'));
+console.log(el4.closest('.hello'));
