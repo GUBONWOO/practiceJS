@@ -1,23 +1,104 @@
-//Cookie
+// import cloneDeep from './node_modules/lodash/cloneDeep';
 
-document.cookie = 'a=1; max-age=3 ';
-document.cookie = 'b=2';
-console.log(document.cookie);
+// // Symbol
 
-//Storage
+// const sKey = Symbol('Hello!');
+// const user = {
+//   key: 'Normal Info',
+//   [sKey]: 'Important Info',
+// };
 
-localStorage.setItem('a', 'hello');
-localStorage.setItem('b', { x: 1, y: 2 });
-localStorage.setItem('c', JSON.stringify(123));
+// console.log(user.key);
+// console.log(user['key']);
+// console.log(user[sKey]);
+// console.log(sKey);
 
-console.log(localStorage.getItem('a'));
-console.log(localStorage.getItem('b'));
-console.log(JSON.parse(localStorage.getItem('c')));
+// // BigInt
 
-// Location
+// console.log(123123123);
+// console.log(123123123n);
+// console.log(BigInt('123123123'));
 
-console.log(location);
+// let e = 11n;
+// let f = 22;
 
-// History
+// console.log(e + BigInt(f));
+// console.log(typeof (e + BigInt(f)));
 
-console.log(history);
+// // Shallow Copy
+
+// let a = 1;
+// let b = a;
+
+// b = 2;
+// console.log(b);
+// console.log(a);
+
+// b = 3;
+// console.log(b);
+// console.log(a);
+
+// const c = { x: 1 };
+// const d = Object.assign({}, c);
+// c.x = 2;
+
+// console.log(c);
+// console.log(d);
+
+// const z = { x: { y: 1 } };
+// const v = cloneDeep(z);
+// v.x.y = 2;
+// console.log(z);
+// console.log(v);
+
+// GC
+
+// let a = { x: 1 };
+// let b = a;
+// b.x = 2;
+// console.log(b);
+// console.log(a);
+
+// const user = {
+//   name: 'koo',
+//   age: 20,
+//   emails: ['zcwdcdad@gmail.com', 'heroyp@gmail.com'],
+// };
+
+// delete user.emails;
+// console.log(user);
+
+// Closure
+
+// function createCount() {
+//   let a = 0;
+//   return function () {
+//     return (a += 1);
+//   };
+// }
+// const count = createCount();
+// console.log(count());
+// console.log(count());
+// console.log(count());
+
+// const h1El = document.querySelector('h1');
+// const h2El = document.querySelector('h2');
+
+// let h1IsRed = false;
+// let h2IsRed = false;
+
+// h1El.addEventListener('click', (event) => {
+//   h1IsRed = !h1IsRed;
+//   h1El.style.color = h1IsRed ? ' red' : 'black';
+// });
+
+// Call Stack Task Queue
+// import { createStacks} from
+createStacks({
+  stacks: [],
+  queues: [],
+});
+setTimeout(() => {
+  console.log(1);
+}, 0);
+console.log(2);
